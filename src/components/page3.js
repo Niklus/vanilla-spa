@@ -1,7 +1,8 @@
 import { getTodosFromStorage, storeTodosInStorage } from "../utils/storage";
 
 const page3 = {
-  template: `<div class="page3">
+  template: () =>
+    `<div class="page3">
       <h2>Page 3</h2>
       <form>
         <input id="todo" type="text" placeholder="enter a todo"/>
@@ -41,7 +42,6 @@ const page3 = {
     this._displayTodos(todos);
   },
 
-  // Private Method
   _displayTodos(todos) {
     if (todos.length > 0) {
       const todosContainer = document.querySelector(".todos");

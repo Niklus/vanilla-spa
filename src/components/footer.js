@@ -1,5 +1,6 @@
 const footer = {
-  template: `<footer>
+  template: () =>
+    `<footer>
       <h3>Footer</h3>
     </footer>`,
 
