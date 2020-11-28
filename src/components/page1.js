@@ -5,8 +5,11 @@ const page1 = {
       <button class="btn">Click Me</button>
     </div>`,
 
-  // Public Method
-  addEventListeners() {
+  init() {
+    this._addEventListeners();
+  },
+
+  _addEventListeners() {
     const btn = document.querySelector(".btn");
     btn.addEventListener("click", (e) => {
       this._greet();

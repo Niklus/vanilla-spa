@@ -9,14 +9,19 @@ const page3 = {
       </form>
     </div>`,
 
+  init() {
+    this._getTodos();
+    this._addEventListeners();
+  },
+
   // Public Method
-  getTodos() {
+  _getTodos() {
     const todos = getTodosFromStorage() || [];
     this._displayTodos(todos);
   },
 
   // Public Method
-  addEventListeners() {
+  _addEventListeners() {
     const form = document.querySelector("form");
     const todo = document.getElementById("todo");
     form.addEventListener("submit", (e) => {

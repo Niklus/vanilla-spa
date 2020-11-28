@@ -7,8 +7,11 @@ const page2 = {
       <small>The above data was fetched from an external server</small>
     </div>`,
 
-  // Public Method
-  getData() {
+  init() {
+    this._getData();
+  },
+
+  _getData() {
     const http = new Http();
     http.setBaseUrl("https://jsonplaceholder.typicode.com");
     try {
