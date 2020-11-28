@@ -8,12 +8,18 @@ import router from "./router";
 
 const render = () => {
   const hash = window.location.hash;
+
+  // Add to Dom
   document.body.innerHTML = `
     ${header.template}
     ${router[hash].template}
     ${footer.template}
   `;
+
+  // Initialize after adding to dom. Event listeners e.t.c
+  header.init();
   router[hash].init();
+  footer.init();
 };
 
 render();

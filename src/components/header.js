@@ -5,6 +5,10 @@ const header = {
       <a href="#page2">Page 2<a> |
       <a href="#page3">Page 3<a>
     </header>`,
+
+  init() {
+    // For event Listeners, updating dom e.t.c
+  },
 };
 
 export default header;
