@@ -14,13 +14,11 @@ const page3 = {
     this._addEventListeners();
   },
 
-  // Public Method
   _getTodos() {
     const todos = getTodosFromStorage() || [];
     this._displayTodos(todos);
   },
 
-  // Public Method
   _addEventListeners() {
     const form = document.querySelector("form");
     const todo = document.getElementById("todo");
@@ -36,7 +34,6 @@ const page3 = {
     });
   },
 
-  // Private Method
   _addToStorage(todo) {
     const todos = getTodosFromStorage() || [];
     todos.push(todo);

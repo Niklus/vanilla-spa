@@ -16,7 +16,6 @@ const page1 = {
     });
   },
 
-  // Private Method
   _greet() {
     alert("Hello World");
   },

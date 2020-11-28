@@ -23,7 +23,6 @@ const page2 = {
     }
   },
 
-  // Private Method
   _render(data) {
     const container = document.querySelector(".container");
     container.innerHTML = `
