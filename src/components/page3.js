@@ -2,7 +2,7 @@ import { getTodosFromStorage, storeTodosInStorage } from "../utils/storage";
 
 class Page3 {
   template() {
-    return `<div class="page3">
+    return /*html*/ `<div class="page3">
       <h2>Page 3</h2>
       <form>
         <input id="todo" type="text" placeholder="enter a todo"/>

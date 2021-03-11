@@ -1,6 +1,6 @@
 class Page1 {
   template() {
-    return `<div class="page1">
+    return /*html*/ `<div class="page1">
       <h2>Page 1</h2>
       <img src="img/spa-benefits.png"/> <br/>
       <button class="btn">Click Me</button>

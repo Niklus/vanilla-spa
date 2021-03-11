@@ -1,6 +1,6 @@
 class Footer {
   template() {
-    return `<footer>
+    return /*html*/ `<footer>
       <h3>Footer</h3>
     </footer>`;
   }
