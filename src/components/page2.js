@@ -1,13 +1,12 @@
 import Http from "../utils/http";
 
 class Page2 {
-  template() {
-    return /*html*/ `<div class="page2">
+  template = /*html*/ `
+    <div class="page2">
       <h2>Page 2</h2>
       <div class="container"></div>
       <small>The above data was fetched from an external server</small>
     </div>`;
-  }
 
   init() {
     this.#getData();

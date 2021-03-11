@@ -25,24 +25,24 @@ a {
 .page1 {
   padding: 24px;
   background-color: pink;
-  height: 600px;
+  height: 800px;
 }
 
 .page2 {
   padding: 12px;
   background-color: paleturquoise;
-  height: 600px;
+  height: 800px;
 }
 
 .page3 {
   padding: 12px;
   background-color: khaki;
-  height: 600px;
+  height: 800px;
 }
 
 footer {
   padding: 12px;
-  background-color: sandybrown;
+  background-color: #eee;
 }
 
 .btn {
@@ -62,7 +62,9 @@ small {
 }
 
 img {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
 }
 
 p {

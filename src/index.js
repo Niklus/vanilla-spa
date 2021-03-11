@@ -9,11 +9,11 @@ import pages from "./router";
 const render = () => {
   // Render to DOM
   document.body.innerHTML = `
-    ${header.template()}
-    ${pages[location.hash].template()}
-    ${footer.template()}
+    ${header.template}
+    ${pages[location.hash].template}
+    ${footer.template}
   `;
-  // Initialize after adding to DOM - Add listeners e.t.c
+  // Initialize after adding to DOM => init() adds listeners e.t.c
   header.init();
   pages[location.hash].init();
   footer.init();
