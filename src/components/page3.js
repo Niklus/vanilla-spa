@@ -21,6 +21,11 @@ class Page3 {
   }
 
   #addEventListeners() {
+    this.#addFormListener();
+    this.#addButtonsListener();
+  }
+
+  #addFormListener() {
     const form = document.querySelector("form");
     const todo = document.getElementById("todo");
     form.addEventListener("submit", (e) => {
@@ -33,7 +38,9 @@ class Page3 {
         todo.value = "";
       }
     });
+  }
 
+  #addButtonsListener() {
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button) => {
       button.addEventListener("click", (e) => {
@@ -46,7 +53,8 @@ class Page3 {
     const todos = getTodosFromStorage() || [];
     todos.push(todo);
     storeTodosInStorage(todos);
-    this.init();
+    this.#getTodos();
+    this.#addButtonsListener();
   }
 
   #removeFromStorage(id) {
@@ -54,7 +62,8 @@ class Page3 {
     if (todos) {
       todos.splice(id, 1);
       storeTodosInStorage(todos);
-      this.init();
+      this.#getTodos();
+      this.#addButtonsListener();
     }
   }
 
