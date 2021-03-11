@@ -1,12 +1,13 @@
-const footer = {
-  template: () =>
-    `<footer>
+class Footer {
+  template() {
+    return `<footer>
       <h3>Footer</h3>
-    </footer>`,
+    </footer>`;
+  }
 
   init() {
     // For event Listeners, updating dom e.t.c
-  },
-};
+  }
+}
 
-export default footer;
+export default new Footer();

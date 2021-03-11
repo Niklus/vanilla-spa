@@ -1,48 +1,49 @@
 import { getTodosFromStorage, storeTodosInStorage } from "../utils/storage";
 
-const page3 = {
-  template: () =>
-    `<div class="page3">
+class Page3 {
+  template() {
+    return `<div class="page3">
       <h2>Page 3</h2>
       <form>
         <input id="todo" type="text" placeholder="enter a todo"/>
         <ol class="todos"></ol>
       </form>
-    </div>`,
+    </div>`;
+  }
 
   init() {
-    this._getTodos();
-    this._addEventListeners();
-  },
+    this.#getTodos();
+    this.#addEventListeners();
+  }
 
-  _getTodos() {
+  #getTodos() {
     const todos = getTodosFromStorage() || [];
-    this._displayTodos(todos);
-  },
+    this.#displayTodos(todos);
+  }
 
-  _addEventListeners() {
+  #addEventListeners() {
     const form = document.querySelector("form");
     const todo = document.getElementById("todo");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       if (todo.value) {
-        this._addToStorage({
+        this.#addToStorage({
           todo: todo.value,
           completed: false,
         });
         todo.value = "";
       }
     });
-  },
+  }
 
-  _addToStorage(todo) {
+  #addToStorage(todo) {
     const todos = getTodosFromStorage() || [];
     todos.push(todo);
     storeTodosInStorage(todos);
-    this._displayTodos(todos);
-  },
+    this.#displayTodos(todos);
+  }
 
-  _displayTodos(todos) {
+  #displayTodos(todos) {
     if (todos.length > 0) {
       const todosContainer = document.querySelector(".todos");
       let htmlStr = "";
@@ -51,7 +52,7 @@ const page3 = {
       }
       todosContainer.innerHTML = htmlStr;
     }
-  },
-};
+  }
+}
 
-export default page3;
+export default new Page3();

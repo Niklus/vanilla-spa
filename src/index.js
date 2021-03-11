@@ -13,7 +13,7 @@ const render = () => {
     ${pages[location.hash].template()}
     ${footer.template()}
   `;
-  // Initialize after adding to DOM
+  // Initialize after adding to DOM - Add listeners e.t.c
   header.init();
   pages[location.hash].init();
   footer.init();
