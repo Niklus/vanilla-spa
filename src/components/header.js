@@ -1,5 +1,9 @@
 class Header {
-  template() {
+  constructor() {
+    this.header = document.getElementById("header");
+  }
+
+  get template() {
     return /*html*/ `
       <header>
         <h2 class="title">LOGO</h2>
@@ -16,8 +20,7 @@ class Header {
   }
 
   #render() {
-    this.header = document.getElementById("header");
-    this.header.innerHTML = this.template();
+    this.header.innerHTML = this.template;
   }
 }
 

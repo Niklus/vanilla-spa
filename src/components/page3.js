@@ -1,14 +1,18 @@
 import { getTodosFromStorage, storeTodosInStorage } from "../utils/storage";
 
 class Page3 {
-  template() {
+  constructor() {
+    this.page = document.getElementById("page");
+  }
+
+  get template() {
     return /*html*/ `
       <div class="page3">
         <h2>Page 3</h2>
         <form>
-          <input id="todo" type="text" placeholder="enter a todo"/>
+          <input id="todo" type="text" placeholder="Enter a todo"/>
         </form>
-        <ol class="todos"></ol>
+        <div class="todos"></div>
       </div>
     `;
   }
@@ -77,7 +81,15 @@ class Page3 {
     if (todos.length > 0) {
       let htmlStr = "";
       todos.forEach((todo, index) => {
-        htmlStr += `<li>${todo.todo}_<button id=${index}>X</button></li>`;
+        htmlStr += /*html*/ `
+          <div style="width:600px; margin: 10px auto;">
+            <hr/>
+            <div
+              style="display:flex; justify-content: space-between"
+            >${todo.todo} <button id=${index}>delete</button>
+            </div>
+          </div>
+          `;
       });
       todosContainer.innerHTML = htmlStr;
     } else {
@@ -86,8 +98,7 @@ class Page3 {
   }
 
   #render() {
-    this.page = document.getElementById("page");
-    this.page.innerHTML = this.template();
+    this.page.innerHTML = this.template;
   }
 }
 

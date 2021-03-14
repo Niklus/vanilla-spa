@@ -1,5 +1,9 @@
 class Footer {
-  template() {
+  constructor() {
+    this.footer = document.getElementById("footer");
+  }
+
+  get template() {
     return /*html*/ `
       <footer>
         <h3>Footer</h3>
@@ -13,8 +17,7 @@ class Footer {
   }
 
   #render() {
-    this.footer = document.getElementById("footer");
-    this.footer.innerHTML = this.template();
+    this.footer.innerHTML = this.template;
   }
 }
 

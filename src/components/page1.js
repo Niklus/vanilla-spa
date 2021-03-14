@@ -1,9 +1,13 @@
 class Page1 {
-  template() {
+  constructor() {
+    this.page = document.getElementById("page");
+  }
+
+  get template() {
     return /*html*/ `
       <div class="page1">
         <h2>Page 1</h2>
-        <img src="img/spa-benefits.png"/> <br/>
+        <img src="img/spa-benefits.png" alt="spa benefits"/> <br/>
         <hr/>
         <h2> state.count: ${this.state.count}</h2>
         <button class="btn">Increment</button>
@@ -27,8 +31,7 @@ class Page1 {
   }
 
   #render() {
-    this.page = document.getElementById("page");
-    this.page.innerHTML = this.template();
+    this.page.innerHTML = this.template;
   }
 }
 

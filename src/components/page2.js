@@ -1,7 +1,11 @@
 import Http from "../utils/http";
 
 class Page2 {
-  template() {
+  constructor() {
+    this.page = document.getElementById("page");
+  }
+
+  get template() {
     return /*html*/ `
       <div class="page2">
         <h2>Page 2</h2>
@@ -54,8 +58,7 @@ class Page2 {
   }
 
   #render() {
-    this.page = document.getElementById("page");
-    this.page.innerHTML = this.template();
+    this.page.innerHTML = this.template;
   }
 }
 
