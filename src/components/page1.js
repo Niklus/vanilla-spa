@@ -1,24 +1,34 @@
 class Page1 {
-  template = /*html*/ `
-    <div class="page1">
-      <h2>Page 1</h2>
-      <img src="img/spa-benefits.png"/> <br/>
-      <button class="btn">Click Me</button>
-    </div>`;
+  template() {
+    return /*html*/ `
+      <div class="page1">
+        <h2>Page 1</h2>
+        <img src="img/spa-benefits.png"/> <br/>
+        <hr/>
+        <h2> state.count: ${this.state.count}</h2>
+        <button class="btn">Increment</button>
+      </div>
+    `;
+  }
 
-  init() {
+  init(state) {
+    this.state = state;
+    this.#render();
     this.#addEventListeners();
   }
 
   #addEventListeners() {
     const btn = document.querySelector(".btn");
     btn.addEventListener("click", (e) => {
-      this.#greet();
+      this.state.count++;
+      this.#render();
+      this.#addEventListeners();
     });
   }
 
-  #greet() {
-    alert("Hello World");
+  #render() {
+    this.page = document.getElementById("page");
+    this.page.innerHTML = this.template();
   }
 }
 

@@ -1,16 +1,21 @@
 import { getTodosFromStorage, storeTodosInStorage } from "../utils/storage";
 
 class Page3 {
-  template = /*html*/ `
-    <div class="page3">
-      <h2>Page 3</h2>
-      <form>
-        <input id="todo" type="text" placeholder="enter a todo"/>
-      </form>
-      <ol class="todos"></ol>
-    </div>`;
+  template() {
+    return /*html*/ `
+      <div class="page3">
+        <h2>Page 3</h2>
+        <form>
+          <input id="todo" type="text" placeholder="enter a todo"/>
+        </form>
+        <ol class="todos"></ol>
+      </div>
+    `;
+  }
 
-  init() {
+  init(state) {
+    this.state = state;
+    this.#render();
     this.#getTodos();
     this.#addEventListeners();
   }
@@ -78,6 +83,11 @@ class Page3 {
     } else {
       todosContainer.innerHTML = "";
     }
+  }
+
+  #render() {
+    this.page = document.getElementById("page");
+    this.page.innerHTML = this.template();
   }
 }
 

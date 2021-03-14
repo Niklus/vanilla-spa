@@ -1,11 +1,20 @@
 class Footer {
-  template = /*html*/ `
-    <footer>
-      <h3>Footer</h3>
-    </footer>`;
+  template() {
+    return /*html*/ `
+      <footer>
+        <h3>Footer</h3>
+      </footer>
+    `;
+  }
 
-  init() {
-    // For event Listeners, updating dom e.t.c
+  init(state) {
+    this.state = state;
+    this.#render();
+  }
+
+  #render() {
+    this.footer = document.getElementById("footer");
+    this.footer.innerHTML = this.template();
   }
 }
 
