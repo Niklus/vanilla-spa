@@ -1,4 +1,4 @@
-import { getTodosFromStorage, storeTodosInStorage } from "../utils/storage";
+import { storeStateInStorage } from "../utils/storage";
 
 class Page3 {
   constructor() {
@@ -20,13 +20,8 @@ class Page3 {
   init(state) {
     this.state = state;
     this.#render();
-    this.#getTodos();
+    this.#displayTodos();
     this.#addEventListeners();
-  }
-
-  #getTodos() {
-    const todos = getTodosFromStorage() || [];
-    this.#displayTodos(todos);
   }
 
   #addEventListeners() {
@@ -40,10 +35,10 @@ class Page3 {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       if (todo.value) {
-        this.#addToStorage({
-          todo: todo.value,
-          completed: false,
-        });
+        this.state.todos.push({ todo: todo.value });
+        storeStateInStorage(this.state);
+        this.#displayTodos();
+        this.#addButtonsListener();
         todo.value = "";
       }
     });
@@ -53,34 +48,25 @@ class Page3 {
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button) => {
       button.addEventListener("click", (e) => {
-        this.#removeFromStorage(e.target.id);
+        this.#delete(e.target.id);
       });
     });
   }
 
-  #addToStorage(todo) {
-    const todos = getTodosFromStorage() || [];
-    todos.push(todo);
-    storeTodosInStorage(todos);
-    this.#getTodos();
-    this.#addButtonsListener();
-  }
-
-  #removeFromStorage(id) {
-    const todos = getTodosFromStorage();
-    if (todos) {
-      todos.splice(id, 1);
-      storeTodosInStorage(todos);
-      this.#getTodos();
+  #delete(id) {
+    if (this.state.todos.length > 0) {
+      this.state.todos.splice(id, 1);
+      storeStateInStorage(this.state);
+      this.#displayTodos();
       this.#addButtonsListener();
     }
   }
 
   #displayTodos(todos) {
     const todosContainer = document.querySelector(".todos");
-    if (todos.length > 0) {
+    if (this.state.todos.length > 0) {
       let htmlStr = "";
-      todos.forEach((todo, index) => {
+      this.state.todos.forEach((todo, index) => {
         htmlStr += /*html*/ `
           <div style="width:600px; margin: 10px auto;">
             <hr/>

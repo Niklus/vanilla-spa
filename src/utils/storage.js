@@ -1,7 +1,7 @@
-const getTodosFromStorage = () =>
-  JSON.parse(window.localStorage.getItem("todos"));
+const getStateFromStorage = () =>
+  JSON.parse(window.localStorage.getItem("state"));
 
-const storeTodosInStorage = (todos) =>
-  window.localStorage.setItem("todos", JSON.stringify(todos));
+const storeStateInStorage = (state) =>
+  window.localStorage.setItem("state", JSON.stringify(state));
 
-export { getTodosFromStorage, storeTodosInStorage };
+export { getStateFromStorage, storeStateInStorage };

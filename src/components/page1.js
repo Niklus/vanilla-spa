@@ -1,3 +1,5 @@
+import { storeStateInStorage } from "../utils/storage";
+
 class Page1 {
   constructor() {
     this.page = document.getElementById("page");
@@ -27,6 +29,7 @@ class Page1 {
       this.state.count++;
       this.#render();
       this.#addEventListeners();
+      storeStateInStorage(this.state);
     });
   }
 

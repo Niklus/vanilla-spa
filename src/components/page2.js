@@ -1,4 +1,5 @@
 import Http from "../utils/http";
+import { storeStateInStorage } from "../utils/storage";
 
 class Page2 {
   constructor() {
@@ -32,6 +33,7 @@ class Page2 {
       http.get("/posts/1").then((data) => {
         this.state.data = data;
         this.#displayData();
+        storeStateInStorage(this.state);
       });
     } catch (error) {
       console.log(error);
@@ -54,6 +56,7 @@ class Page2 {
       this.#render();
       this.#displayData();
       this.#addEventListeners();
+      storeStateInStorage(this.state);
     });
   }
 
