@@ -1,13 +1,13 @@
 // Import stylesheets
-import "./css/style.css";
+import './css/style.css';
 
 // Components
-import header from "./components/header";
-import footer from "./components/footer";
-import pages from "./router";
+import header from './components/header';
+import footer from './components/footer';
+import pages from './router';
 
 // State
-import state from "./state/state";
+import state from './state/state';
 
 const render = () => {
   header.init(state);
@@ -16,5 +16,4 @@ const render = () => {
 };
 
 render();
-
-window.addEventListener("hashchange", render);
+window.addEventListener('hashchange', render);

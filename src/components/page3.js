@@ -1,8 +1,8 @@
-import { storeStateInStorage } from "../utils/storage";
+import { storeStateInStorage } from '../utils/storage';
 
 class Page3 {
   constructor() {
-    this.page = document.getElementById("page");
+    this.page = document.getElementById('page');
   }
 
   get template() {
@@ -30,24 +30,24 @@ class Page3 {
   }
 
   #addFormListener() {
-    const form = document.querySelector("form");
-    const todo = document.getElementById("todo");
-    form.addEventListener("submit", (e) => {
+    const form = document.querySelector('form');
+    const todo = document.getElementById('todo');
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (todo.value) {
         this.state.todos.push({ todo: todo.value });
         storeStateInStorage(this.state);
         this.#displayTodos();
         this.#addButtonsListener();
-        todo.value = "";
+        todo.value = '';
       }
     });
   }
 
   #addButtonsListener() {
-    const buttons = document.querySelectorAll("button");
+    const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
-      button.addEventListener("click", (e) => {
+      button.addEventListener('click', (e) => {
         this.#delete(e.target.id);
       });
     });
@@ -63,9 +63,9 @@ class Page3 {
   }
 
   #displayTodos(todos) {
-    const todosContainer = document.querySelector(".todos");
+    const todosContainer = document.querySelector('.todos');
     if (this.state.todos.length > 0) {
-      let htmlStr = "";
+      let htmlStr = '';
       this.state.todos.forEach((todo, index) => {
         htmlStr += /*html*/ `
           <div style="width:600px; margin: 10px auto;">
@@ -79,7 +79,7 @@ class Page3 {
       });
       todosContainer.innerHTML = htmlStr;
     } else {
-      todosContainer.innerHTML = "";
+      todosContainer.innerHTML = '';
     }
   }
 

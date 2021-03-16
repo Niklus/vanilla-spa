@@ -1,6 +1,6 @@
 class Http {
   constructor() {
-    this.baseUrl = "";
+    this.baseUrl = '';
   }
 
   setBaseUrl(url) {
@@ -24,9 +24,9 @@ class Http {
 
   post(endpoint, data) {
     return fetch(this.baseUrl + endpoint, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     }).then((response) => response.json());

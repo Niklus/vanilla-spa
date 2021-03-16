@@ -1,6 +1,6 @@
 class Header {
   constructor() {
-    this.header = document.getElementById("header");
+    this.header = document.getElementById('header');
   }
 
   get template() {

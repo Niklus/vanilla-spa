@@ -1,4 +1,4 @@
-import { getStateFromStorage } from "../utils/storage";
+import { getStateFromStorage } from '../utils/storage';
 
 export default getStateFromStorage() || {
   count: 0,

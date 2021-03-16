@@ -1,9 +1,9 @@
-import Http from "../utils/http";
-import { storeStateInStorage } from "../utils/storage";
+import Http from '../utils/http';
+import { storeStateInStorage } from '../utils/storage';
 
 class Page2 {
   constructor() {
-    this.page = document.getElementById("page");
+    this.page = document.getElementById('page');
   }
 
   get template() {
@@ -28,9 +28,9 @@ class Page2 {
 
   #getData() {
     const http = new Http();
-    http.setBaseUrl("https://jsonplaceholder.typicode.com");
+    http.setBaseUrl('https://jsonplaceholder.typicode.com');
     try {
-      http.get("/posts/1").then((data) => {
+      http.get('/posts/1').then((data) => {
         this.state.data = data;
         this.#displayData();
         storeStateInStorage(this.state);
@@ -41,7 +41,7 @@ class Page2 {
   }
 
   #displayData() {
-    const container = document.querySelector(".container");
+    const container = document.querySelector('.container');
     container.innerHTML = `
       <p>ID: ${this.state.data.id}</p>
       <p>Title: ${this.state.data.title}</p>
@@ -50,8 +50,8 @@ class Page2 {
   }
 
   #addEventListeners() {
-    const btn = document.querySelector(".btn");
-    btn.addEventListener("click", (e) => {
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('click', (e) => {
       this.state.count++;
       this.#render();
       this.#displayData();

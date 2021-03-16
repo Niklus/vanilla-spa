@@ -1,8 +1,8 @@
-import { storeStateInStorage } from "../utils/storage";
+import { storeStateInStorage } from '../utils/storage';
 
 class Page1 {
   constructor() {
-    this.page = document.getElementById("page");
+    this.page = document.getElementById('page');
   }
 
   get template() {
@@ -24,8 +24,8 @@ class Page1 {
   }
 
   #addEventListeners() {
-    const btn = document.querySelector(".btn");
-    btn.addEventListener("click", (e) => {
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('click', (e) => {
       this.state.count++;
       this.#render();
       this.#addEventListeners();

@@ -1,6 +1,6 @@
 class Footer {
   constructor() {
-    this.footer = document.getElementById("footer");
+    this.footer = document.getElementById('footer');
   }
 
   get template() {
